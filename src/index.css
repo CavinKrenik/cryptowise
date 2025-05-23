@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 43 96% 56%;
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 43 96% 56%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 23% 95%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 220 13% 9%;
+    --sidebar-accent: 220 14% 90%;
+    --sidebar-accent-foreground: 215 25% 27%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 43 96% 56%;
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 43 96% 56%;
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 215 25% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 25% 16%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 25% 16%;
+    --input: 215 25% 16%;
+    --ring: 43 96% 56%;
+
+    --sidebar-background: 220 13% 6%;
+    --sidebar-foreground: 217.9 10.6% 64.9%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 220 13% 9%;
+    --sidebar-accent: 220 13% 9%;
+    --sidebar-accent-foreground: 217.9 10.6% 64.9%;
+    --sidebar-border: 220 13% 9%;
+    --sidebar-ring: 43 96% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  pre, code {
+    @apply font-mono;
+  }
+}
+
+/* Navbar custom styles */
+.navbar {
+  background-color: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  color: #D1D5DB;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #FFFFFF;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #F59E0B;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+/* Hero Section custom styles */
+.hero-section {
+  background: linear-gradient(180deg, #111827 0%, #1a2333 30%, #2a3447 70%, #111827 100%);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Titles within Hero and Sections */
+.page-title,
+.section-title,
+.course-card-title {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Get Started Button custom styles */
+.get-started-btn {
+  background-color: #F59E0B;
+  color: #111827;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #D97706;
+}
+
+/* Course Card custom styles */
+.course-card {
+  background-color: #1F2937;
+  border: 1px solid #374151;
+}
+
+/* Content padding for fixed navbar */
+.content-padding {
+  padding-top: 80px;
+}
+
+.markdown-editor {
+  @apply font-mono text-base leading-relaxed;
+}
+
+.markdown-preview {
+  @apply prose max-w-none prose-blue dark:prose-invert;
+}
+
+.markdown-preview pre {
+  @apply bg-secondary p-4 rounded-md overflow-x-auto;
+}
+
+.markdown-preview code {
+  @apply text-sm font-mono text-primary;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+  @apply font-sans font-semibold text-foreground;
+}
